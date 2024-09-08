@@ -17,7 +17,7 @@ job.init(args['JOB_NAME'], args)
 current_date = datetime.datetime.now().strftime("%Y-%m-%d")
 # Script generated for node Amazon S3
 weather_dyf = glueContext.create_dynamic_frame.from_options(
-    format_options={"quoteChar": "\"", "withHeader": True, "separator": ","}, 
+    format_options={"quoteChar": '"', "withHeader": True, "separator": ","}, 
     connection_type="s3", 
     format="csv", 
     connection_options={
