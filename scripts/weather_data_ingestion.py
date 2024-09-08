@@ -26,6 +26,7 @@ weather_dyf = glueContext.create_dynamic_frame.from_options(
         },
         transformation_ctx="weather_dyf"
         )
+print(f"S3 Path: s3://weather-data-landing-zone-zn/date={current_date}/weather_api_data.csv")
 
 # Script generated for node Change Schema
 ChangeSchema_weather_dyf = ApplyMapping.apply(
@@ -45,8 +46,8 @@ ChangeSchema_weather_dyf = ApplyMapping.apply(
         ("`wind.speed`", "string", "wind", "string"),
         ],
         transformation_ctx="ChangeSchema_weather_dyf")
-
-
+print("Here is the DataFrame....")
+ChangeSchema_weather_dyf.toDF().show(10)
 redshift_output = glueContext.write_dynamic_frame.from_options(
     frame = ChangeSchema_weather_dyf,
     connection_type = "redshift",
