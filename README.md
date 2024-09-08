@@ -141,7 +141,3 @@ The CI/CD pipeline is managed by AWS CodeBuild. The `buildspec.yml` file contain
 - **Data Validation:** Implement data validation steps to ensure data quality before loading into Redshift.
 - **Automated Alerts:** Add monitoring and alerting for data pipeline failures or anomalies.
 - **Expand Data Sources:** Integrate additional data sources to enrich the analysis.
-
----
-
-This README provides a comprehensive guide to your repository, covering the objectives, architecture, implementation details, and future enhancements of your ETL pipeline project. Feel free to customize it further based on your specific needs!
