@@ -28,7 +28,7 @@ api_params = {
         "q": "Toronto,Canada",
         "appid": Variable.get("api_key")
     }
-
+current_date = datetime.now().strftime("%Y-%m-%d")
 def extract_openweather_data(**kwargs):
     print("Extraction Started............")
     ti = kwargs['ti']
@@ -50,7 +50,7 @@ upload_to_s3 = S3CreateObjectOperator(
     task_id = 'upload_to_S3',
     aws_conn_id = 'aws_default',
     s3_bucket = 'weather-data-landing-zone-zn',
-    s3_key = 'date={{ds}}/weather_api_data.csv',
+    s3_key = f'date={current_date}/weather_api_data.csv',
     data = "{{ ti.xcom_pull(key='final_data') }}",
     dag =dag,
 )
